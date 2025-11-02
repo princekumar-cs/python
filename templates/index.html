@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Percentage Calculator</title>
+</head>
+<body>
+    <h2>Percentage Calculator</h2>
+    <form method="POST">
+        <input type="number" name="obtained" placeholder="Obtained Marks" required>
+        <input type="number" name="total" placeholder="Total Marks" required>
+        <button type="submit">Calculate</button>
+    </form>
+    {% if result %}
+        <p><b>Percentage:</b> {{ result }}%</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
