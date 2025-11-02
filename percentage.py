@@ -1,16 +1,18 @@
-# percentage_calculator.py
+# percentage.py
+import os
 
-def calculate_percentage(obtained, total):
-    """
-    Calculate percentage given obtained and total marks.
-    """
-    if total == 0:
-        return "Total marks cannot be zero!"
-    percentage = (obtained / total) * 100
-    return f"Percentage: {percentage:.2f}%"
+print("=== Percentage Calculator ===")
 
-if __name__ == "__main__":
-    print("=== Percentage Calculator ===")
+# Detect if running in GitHub Actions (no input possible)
+running_in_actions = os.getenv("GITHUB_ACTIONS") == "true"
+
+if running_in_actions:
+    obtained = 85
+    total = 100
+    print(f"Running in GitHub Actions — using test data: {obtained}/{total}")
+else:
     obtained = float(input("Enter obtained marks: "))
     total = float(input("Enter total marks: "))
-    print(calculate_percentage(obtained, total))
+
+percentage = (obtained / total) * 100
+print(f"Percentage: {percentage:.2f}%")
